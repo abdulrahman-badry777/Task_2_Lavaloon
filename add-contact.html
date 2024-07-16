@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- Normalize File -->
+    <link rel="stylesheet" href="css/normalize.css" />
+<!-- Main css file -->
+    <link rel="stylesheet" href="css/add-contact.css" />
+<!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- font asweom -->
+    <link rel="stylesheet" href="css/all.min.css">
+<!-- Sweat alert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="spinner-container">
+        <div class="loader"></div>
+    </div>
+    <div class="add-contact">
+        <div class="avatar">
+        <img src="imgs/Avatar.png" alt="" width="100px" height="100px">
+        <h2>Welcome, Abdo 👏</h2>
+        </div>
+        <div class="addcontact-detalis">
+            <div class="add-heading">
+                <h2>Add Contact Details</h2>
+            </div>
+            <div class="form">
+                <label for="">Full Name</label>
+                <input type="text"  class="add-name" placeholder="first_name-last_name">
+                <label for="">email</label>
+                <input type="text"  class="add-mail" placeholder="example@gmail.com">
+                <label for="">Telephone</label>
+                <input type="text" class="add-phone"  placeholder="123-1234-1234">
+                <button class="adding-button">submit</button>
+                <a href="contact-list.html">Back to contact-list</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/contact-list.js"></script>
+</body>
+</html>

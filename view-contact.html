@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Details</title>
+   <!-- Normalize File -->
+   <link rel="stylesheet" href="css/normalize.css" />
+   <!-- Main css file -->
+       <link rel="stylesheet" href="css/view-contact.css" />
+   <!-- Google fonts -->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+   <!-- font asweom -->
+       <link rel="stylesheet" href="css/all.min.css">
+   <!-- Sweat alert -->
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="spinner-container">
+        <div class="loader"></div>
+    </div>
+    <div class="view-details">
+        <div class="avatar">
+            <img src="imgs/Avatar.png" alt="" width="100px" height="100px">
+            <h2>Welcome, Abdo 👏</h2>
+          </div>
+          <div class="contact-detalis">
+            <div class="heading">
+              <h2>View Contact Details</h2>
+            </div>
+        <div class="details">
+            <p><strong>Name:</strong> <span id="contactName"></span></p>
+            <p><strong>Email:</strong> <span id="contactEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="contactPhone"></span></p>
+        </div>
+        <div class="edit-toggle">
+            <input type="checkbox" id="editToggle">
+            <label for="editToggle">Enable Edit</label>
+        </div>
+        <button id="saveButton" style="display:none;">Save Changes</button>
+    </div>
+
+    <script src="js/view-list.js"></script>
+</body>
+</html>
