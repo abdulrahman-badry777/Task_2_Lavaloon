@@ -17,6 +17,10 @@
 <!-- Sweat alert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- International Telephone Input -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
 </head>
 <body>
     <div id="spinner-container">
@@ -37,7 +41,7 @@
                 <label for="">email</label>
                 <input type="text"  class="add-mail" placeholder="example@gmail.com">
                 <label for="">Telephone</label>
-                <input type="text" class="add-phone"  placeholder="123-1234-1234">
+                <input type="text" class="add-phone">
                 <button class="adding-button">submit</button>
                 <a href="contact-list.html">Back to contact-list</a>
             </div>
@@ -45,5 +49,6 @@
     </div>
     
     <script src="js/contact-list.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 </html>

@@ -17,6 +17,10 @@
    <!-- Sweat alert -->
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+       <!-- International Telephone Input -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
 </head>
 <body>
     <div id="spinner-container">
@@ -37,12 +41,14 @@
             <p><strong>Phone:</strong> <span id="contactPhone"></span></p>
         </div>
         <div class="edit-toggle">
-            <input type="checkbox" id="editToggle">
+            <!-- <input type="checkbox" id="editToggle"> -->
             <label for="editToggle">Enable Edit</label>
+            <div id="editToggle">
+                <span class="circle"></span>
+            </div>
         </div>
-        <button id="saveButton" style="display:none;">Save Changes</button>
+            <button id="saveButton" style="display:none;">Save Changes</button>        
     </div>
-
     <script src="js/view-list.js"></script>
 </body>
 </html>

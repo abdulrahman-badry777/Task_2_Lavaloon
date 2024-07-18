@@ -151,8 +151,12 @@ body {
 
 }
 .info-container .box .buttons {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
+/* }
 .info-container .box .buttons button:first-child {
     border: none;
     outline: none;
@@ -174,8 +178,12 @@ body {
 .info-container .box .buttons button:last-child a{
     color: white;
     text-decoration: none;
+} */
+.info-container .box .buttons i {
+    font-size: 35px;
+    cursor: pointer;
 }
- /* Full-screen spinner container */
+/* Full-screen spinner container */
  #spinner-container {
     position: fixed;
     top: 0;

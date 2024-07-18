@@ -88,7 +88,6 @@ let addSubmit = document.querySelector(".adding-button");
 let addname = document.querySelector(".add-name");
 let addmail = document.querySelector(".add-mail");
 let addphone = document.querySelector(".add-phone");
-
 // Function to check if contact exists
 function contactExists(name, email, phone) {
     let contacts = JSON.parse(localStorage.getItem('objects')) || [];
@@ -154,33 +153,42 @@ if (addSubmit != null) {
         }
     };
 }
+// let delIcon  = document.querySelector('.fa-trash') ;
+// let viewIcon  = document.querySelector('.fa-eye') ;
+// let updateIcon = document.querySelector('.fa-arrows-spin') ;
 
 // 
 if( window.location.href === 'http://127.0.0.1:5500/contact-list.html') {
-    contactsArray = JSON.parse(localStorage.objects);
+            contactsArray = JSON.parse(localStorage.objects);
+                
+//  Adding object to the parent
             for (let j = 0; j < contactsArray.length; j++) {
+                let delIcon  = document.querySelector('.fa-trash') ;
+                let viewIcon  = document.querySelector('.fa-eye') ;
+                let updateIcon = document.querySelector('.fa-arrows-spin') ;
+                
+                let delIconclone  = delIcon.cloneNode(true);
+                let viewIconclone  = viewIcon.cloneNode(true);
+                let updateIconclone = updateIcon.cloneNode(true);
                 let box_con = document.querySelector(".box-con");
                 let newcontact = document.createElement("div");
                 let namecontact = document.createElement("div");
                 let buttons = document.createElement("div");
-                let removebut = document.createElement("button");
-                let viewbut = document.createElement("button");
-                // let herfviewbut = document.createElement("a");
-                //innerhtml
+                
+//innerhtml
                 namecontact.innerHTML = contactsArray[j].name;
-                removebut.innerHTML = "Remove";
-                viewbut.innerHTML = "view";
-                // viewbut.href = "view-contact.html";
-                //classlsit
+//classlsit
                 buttons.classList.add("buttons");
                 newcontact.classList.add("box");
                 namecontact.classList.add("name");
-                removebut.classList.add("remove");
-                viewbut.classList.add("view-list");
-                //Appendib
+                delIconclone.classList.add("remove");
+                viewIconclone.classList.add("view-list");
+                updateIconclone.classList.add("update-list");
+//Appendib
                 // viewbut.appendChild(herfviewbut);
-                buttons.appendChild(removebut);
-                buttons.appendChild(viewbut);
+                buttons.appendChild(delIconclone);
+                buttons.appendChild(viewIconclone);
+                buttons.appendChild(updateIconclone);
                 newcontact.appendChild(namecontact);
                 newcontact.appendChild(buttons);
                 box_con.appendChild(newcontact);
@@ -188,38 +196,90 @@ if( window.location.href === 'http://127.0.0.1:5500/contact-list.html') {
     }
     // detailsdiv.parentNode.children
     let contactdiv = document.querySelector('.contact') ;
-let detailsdiv = document.querySelector('.contact-detalis');
-if(contactdiv == null) {}
-else {
+    let detailsdiv = document.querySelector('.contact-detalis');
+    if(contactdiv == null) {}
+    else {
     contactdiv.style.minHeight = `${detailsdiv.offsetHeight+200}px`;
-}
-}
+    }
+    // Remove Icon
 document.addEventListener('click',function (e) {
     if(e.target.classList.contains("remove")){
         let rembox = e.target.parentNode.parentNode;
-        for (let j = 2;  j<= box_con.children.length; j++) {
+        for (let j = 2;  j< box_con.children.length; j++) {
             if(rembox ===box_con.children[j] ) {
                 rembox.remove();
                 let jj = j;
                 let remobj = contactsArray.splice(jj-2,1);
                 window.localStorage.setItem("objects",JSON.stringify(contactsArray));        
-                return 0;
+                break;
             }
         }
+        Swal.fire({
+            title: 'Success!',
+            text: 'You have deleted the contact successfully.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
     }
 })
+// View Icon
 let indexView = 0;
 document.addEventListener('click',function (e) {
-    if(e.target.classList.contains("view-list")) {
+    if(e.target.classList.contains("update-list")) {
         let rembox = e.target.parentNode.parentNode;
-        for (let j = 2;  j<= box_con.children.length; j++) {
-            if(rembox ===box_con.children[j] ) {
+        for (let j = 2;  j< box_con.children.length; j++) {
+            if(rembox === box_con.children[j] ) {
                 indexView = j;
                 console.log(indexView);
                 window.localStorage.setItem("view_contact",`${indexView}`);
                 break;
             }
         }
+        window.localStorage.setItem("updated","true");
+        window.location.href = 'http://127.0.0.1:5500/view-contact.html';
+
+    }
+});
+//Upadte icon
+document.addEventListener('click',function (e) {
+    if(e.target.classList.contains("view-list")) {
+        let rembox = e.target.parentNode.parentNode;
+        for (let j = 2;  j< box_con.children.length; j++) {
+            if(rembox === box_con.children[j] ) {
+                indexView = j;
+                console.log(indexView);
+                window.localStorage.setItem("view_contact",`${indexView}`);
+                break;
+            }
+        }
+        window.localStorage.setItem("updated","false");
         window.location.href = 'http://127.0.0.1:5500/view-contact.html'
     }
 });
+}
+let delIcon  = document.querySelector('.fa-trash') ;
+let viewIcon  = document.querySelector('.fa-eye') ;
+let updateIcon = document.querySelector('.fa-arrows-spin') ;
+document.addEventListener('mouseover',function (e) {
+    if(e.target.classList.contains("fa-trash")){
+        e.target.classList.add("fa-bounce");
+        e.target.addEventListener('mouseleave',function () {
+            e.target.classList.remove("fa-bounce");
+        })
+    }
+    if(e.target.classList.contains("fa-eye")){
+        e.target.classList.add("fa-beat");
+        e.target.addEventListener('mouseleave',function () {
+            e.target.classList.remove("fa-beat");
+        })
+    }
+    if(e.target.classList.contains("fa-arrows-spin")){
+        e.target.classList.add("fa-spin");
+        e.target.addEventListener('mouseleave',function () {
+            e.target.classList.remove("fa-spin");
+        })
+    }
+    
+});
+
+

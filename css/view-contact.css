@@ -141,16 +141,42 @@ body {
     background-color: white;
 }
 .view-details  .contact-detalis .edit-toggle {
-    
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 19px;
+    margin-bottom: 10px;
 }
-.view-details  .contact-detalis .edit-toggle input {
-    
+.view-details  .contact-detalis .edit-toggle #editToggle {
+    width: 45px;
+    height: 3px;
+    background-color: #ccc;
+    position: relative;
+    padding: 15px;
+    border-radius: 16px;
+    transition: all .5s linear;
 }
-
+.view-details  .contact-detalis .edit-toggle #editToggle.clicked {
+    background-color: #2196F3;
+}
+.view-details  .contact-detalis .edit-toggle #editToggle span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all .3s linear;
+}
+.view-details  .contact-detalis .edit-toggle #editToggle span.move {
+    left : 45px;
+}
 .view-details  .contact-detalis .edit-toggle label {
-    
+    font-size: 15px;
+    font-weight: 500;
 }
-.view-details  .contact-detalis button {
+.view-details  .contact-detalis  button {
     width: 286px;
     height: 41.6px;
     border-radius: 12px;
